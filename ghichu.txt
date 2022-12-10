@@ -1,0 +1,26 @@
+---Structure theo gợi ý của Redux---
+
+Trong thư mục features có 2 chức năng
+1. Đặt vé (Booking)
+2. Đăng nhập (Login)
+
+Trong Booking có 3 trang
+1. Trang chủ (Home)
+2. Trang chi tiết phim (Detail)
+3. Trang đặt vé (Booking)
+Để làm được 3 trang này thì:
+ - ta phải có các component: ví dụ: productList, item, carousel.. => tạo 1 thư mục component để chứa
+ - tạo 1 folder utils: trong đó tạo ra cái file chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
+ - tạo folder redux: tạo ra 3 file bookingSlice, action, type 
+
+
+Trong Login có 2 trang
+1. Login.jsx
+2. Signup.jsx
+Copy toàn bộ thư mục trên trang Booking xuống cho giống cấu trúc, sửa tên file bookingSLice thành loginSlice
+
+Ngoài 2 thư mục app, features, ta cần tạo thêm 1 thư mục nữa là assets để chứa hình ảnh
+
+Tiếp tục cài đặt file biến môi trường .env, chứa URL để call API
+
+Tạo file 
