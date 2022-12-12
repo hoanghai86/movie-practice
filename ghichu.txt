@@ -1,6 +1,6 @@
 ---Structure theo gợi ý của Redux---
 
-Trong thư mục features có 2 chức năng
+Tạo thư mục features trong folder src, trong đó có 2 thư mục chức năng nữa là:
 1. Đặt vé (Booking)
 2. Đăng nhập (Login)
 
@@ -10,8 +10,8 @@ Trong Booking có 3 trang
 3. Trang đặt vé (Booking)
 Để làm được 3 trang này thì:
  - ta phải có các component: ví dụ: productList, item, carousel.. => tạo 1 thư mục component để chứa
- - tạo 1 folder utils: trong đó tạo ra cái file chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
- - tạo folder redux: tạo ra 3 file bookingSlice, action, type 
+ - tạo 1 folder utils: trong đó tạo ra cái file index.js chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
+ - tạo folder redux và tạo ra 3 file js là bookingSlice, action, type 
 
 
 Trong Login có 2 trang
@@ -23,4 +23,6 @@ Ngoài 2 thư mục app, features, ta cần tạo thêm 1 thư mục nữa là a
 
 Tiếp tục cài đặt file biến môi trường .env, chứa URL để call API
 
-Tạo file 
+Tạo file đường dẫn tuyệt đối jsconfig.json, đi vào thẳng cái thư mục src, vào google gõ từ khóa tìm kiếm: "Absolute imports in Create React App" => https://dev.to/mr_frontend/absolute-imports-in-create-react-app-3ge8
+Lúc này, mọi đường dẫn đều bắt đầu từ folder src, ví dụ: "app/store", "assets"...
+không cần đường dẫn tương đối "../../" nữa
