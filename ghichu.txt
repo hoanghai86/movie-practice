@@ -9,9 +9,12 @@ Trong Booking có 3 trang
 2. Trang chi tiết phim (Detail)
 3. Trang đặt vé (Booking)
 Để làm được 3 trang này thì:
- - ta phải có các component: ví dụ: productList, item, carousel.. => tạo 1 thư mục component để chứa
+ - ta phải có các component: ví dụ: productList, item, carousel, HomeCarousel.. => tạo 1 thư mục component để chứa
  - tạo 1 folder utils: trong đó tạo ra cái file index.js chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
- - tạo folder redux và tạo ra 3 file js là bookingSlice, action, type 
+ - tạo folder redux và tạo ra 3 file js là: 
+    + bookingSlice: chứa các reducer
+    + action
+    + type 
 
 
 Trong Login có 2 trang
@@ -19,10 +22,34 @@ Trong Login có 2 trang
 2. Signup.jsx
 Copy toàn bộ thư mục trên trang Booking xuống cho giống cấu trúc, sửa tên file bookingSLice thành loginSlice
 
-Ngoài 2 thư mục app, features, ta cần tạo thêm 1 thư mục nữa là assets để chứa hình ảnh
+Ngoài 2 thư mục app, features, ta cần tạo thêm 2 thư mục nữa là:
+- assets để chứa hình ảnh
+- component để chứa các component dùng chung cho cả 2 features Booking và Login: ở đây ta tạo components Header.jsx
 
 Tiếp tục cài đặt file biến môi trường .env, chứa URL để call API
 
 Tạo file đường dẫn tuyệt đối jsconfig.json, đi vào thẳng cái thư mục src, vào google gõ từ khóa tìm kiếm: "Absolute imports in Create React App" => https://dev.to/mr_frontend/absolute-imports-in-create-react-app-3ge8
 Lúc này, mọi đường dẫn đều bắt đầu từ folder src, ví dụ: "app/store", "assets"...
 không cần đường dẫn tương đối "../../" nữa
+
+Cài thư viện tailwindcss: 
+- npm install -D tailwindcss
+- npx tailwindcss init
+Thêm 3 dòng vào file index.css:
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+Trong file tailwind.config.js
+- Thêm đuôi jsx vào dòng content 
+- Thêm 1 option để tránh xung đột với antd:   
+
+corePlugins: {
+    preflight: false, // <== disable this!
+  },
+
+
+Cài thư viên "antd": npm i antd
+Cài component icon từ thư viện "@ant-design/icons": npm install --save @ant-design/icons
+
+
+
