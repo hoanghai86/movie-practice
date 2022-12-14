@@ -1,13 +1,27 @@
 import React from "react";
 import { Carousel } from "antd";
+import { useSelector } from "react-redux";
 
 const HomeCarousel = () => {
+  //lụm banner từ API xuống
+  const banners = useSelector((state) => {
+    return state.booking.banners;
+  });
+
   return (
     <div>
       <Carousel>
-        <div className="bg-slate-400 h-20">1</div>
-        <div className="bg-slate-400 h-20">2</div>
-        <div className="bg-slate-400 h-20">3</div>
+        {banners.map((item) => {
+          return (
+            <div key={item.maBanner}>
+              <img
+                alt=""
+                src={item.hinhAnh}
+                className="w-full h-99 object-cover"
+              />
+            </div>
+          );
+        })}
       </Carousel>
     </div>
   );

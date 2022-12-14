@@ -1,17 +1,16 @@
 import Header from "components/Header";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import HomeCarousel from "./components/HomeCarousel";
-import { useEffect } from "react"; //hook của thư viện react
-import { useDispatch } from "react-redux"; //hook của thư viện react-redux
-import { fetchBannersAction } from "features/Login/redux/action";
+import { fetchBannerAction } from "./redux/action";
 
 const Home = () => {
   const dispatch = useDispatch();
-
   useEffect(() => {
-    //call api
-    dispatch(fetchBannersAction);
-  }, []);
+    //call API
+    dispatch(fetchBannerAction);
+  }, []); //mảng dependency để rỗng cho call 1 lần duy nhất
+
   return (
     <div>
       <Header />

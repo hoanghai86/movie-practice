@@ -12,21 +12,27 @@ Trong Booking có 3 trang
  - ta phải có các component: ví dụ: productList, item, carousel, HomeCarousel.. => tạo 1 thư mục component để chứa
  - tạo 1 folder utils: trong đó tạo ra cái file index.js chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
  - tạo folder redux và tạo ra 3 file js là: 
-    + bookingSlice: chứa các reducer
-    + action
-    + type 
+    + bookingSlice: chứa các reducer (nhớ nâng cấp cái reducer bằng thư viện immer, produce, draff...)
+    + action: chứa async action để next các action lên store (thay thế axios bằng requester =>file api, gom tất cả đường dẫn url vào file apiPath, gom tất cả type vào file type.js)
+    + type: chứa toàn bộ type mà các async action dispatch lên store
 
 
-Trong Login có 2 trang
+Trong Login có 2 trang:
 1. Login.jsx
 2. Signup.jsx
 Copy toàn bộ thư mục trên trang Booking xuống cho giống cấu trúc, sửa tên file bookingSLice thành loginSlice
 
-Ngoài 2 thư mục app, features, ta cần tạo thêm 2 thư mục nữa là:
-- assets để chứa hình ảnh
-- component để chứa các component dùng chung cho cả 2 features Booking và Login: ở đây ta tạo components Header.jsx
+Các thư mục đồng cấp với thư mục features:
+- app:
+    + store.js: khai báo middleware, reducer, thunk...
+    + api.js: có hàm requester, tương tự hàm axios, chứa baseURL và header, tokenCyberSoft... => các action nào call axios thì thay vì dùng hàm axios thì import hàm requester để call
+    + apiPath.js: lưu tất cả đường dẫn để call API
+- assets: chứa hình ảnh dùng cho toàn dự án
+- component: chứa các component dùng chung cho cả 2 features Booking và Login: ở đây ta tạo components Header.jsx
+- file môi trường env (lưu ý mỗi lần đổi gì trong đây phải npm start lại): 
+    + lưu domain tập hợp các link call API "https://movienew.cybersoft.edu.vn/"
+    + lưu tokenCyberSoft để bảo mật
 
-Tiếp tục cài đặt file biến môi trường .env, chứa URL để call API
 
 Tạo file đường dẫn tuyệt đối jsconfig.json, đi vào thẳng cái thư mục src, vào google gõ từ khóa tìm kiếm: "Absolute imports in Create React App" => https://dev.to/mr_frontend/absolute-imports-in-create-react-app-3ge8
 Lúc này, mọi đường dẫn đều bắt đầu từ folder src, ví dụ: "app/store", "assets"...
@@ -51,5 +57,8 @@ corePlugins: {
 Cài thư viên "antd": npm i antd
 Cài component icon từ thư viện "@ant-design/icons": npm install --save @ant-design/icons
 
+Nếu muốn Carousel đẹp hơn thì dùng https://react-slick.neostack.com/
+
+Cài thư viện immer: npm i immer để chỉnh sửa state thông qua bản draff copy
 
 
