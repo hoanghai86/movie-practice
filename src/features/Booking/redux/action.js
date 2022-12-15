@@ -27,3 +27,23 @@ export const fetchBannerAction = async (next) => {
     console.log(error);
   }
 };
+
+export const fetchMoviesAction = (page = 3) => {
+  return async (next) => {
+    try {
+      const res = await requester({
+        method: "GET",
+        url: apiPath.MOVIES,
+        params: {
+          maNhom: "GP01",
+          soTrang: page,
+          soPhanTuTrenTrang: 10,
+        },
+      });
+      next({
+        type: actions.SET_MOVIES,
+        payload: res.data.content,
+      });
+    } catch (error) {}
+  };
+};

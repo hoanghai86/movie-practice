@@ -10,6 +10,8 @@ Trong Booking có 3 trang
 3. Trang đặt vé (Booking)
 Để làm được 3 trang này thì:
  - ta phải có các component: ví dụ: productList, item, carousel, HomeCarousel.. => tạo 1 thư mục component để chứa
+    + HomeCarousel: chứa banners phim nổi bật
+    + MovieList: chứa danh sách phim để show ra màn hình
  - tạo 1 folder utils: trong đó tạo ra cái file index.js chứa những cái hàm hỗ trợ mà hay xài đi xài lại, sử dụng chung cho cả ứng dụng, ví dụ: hàm truncateText để cắt chữ khi chữ dài quá, nó sẽ cắt bớt và giữ đúng 100 ký tự và cộng thêm dấu 3 chấm
  - tạo folder redux và tạo ra 3 file js là: 
     + bookingSlice: chứa các reducer (nhớ nâng cấp cái reducer bằng thư viện immer, produce, draff...)
