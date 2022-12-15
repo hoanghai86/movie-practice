@@ -28,7 +28,7 @@ export const fetchBannerAction = async (next) => {
   }
 };
 
-export const fetchMoviesAction = (page = 3) => {
+export const fetchMoviesAction = (page = 1) => {
   return async (next) => {
     try {
       const res = await requester({
@@ -37,7 +37,7 @@ export const fetchMoviesAction = (page = 3) => {
         params: {
           maNhom: "GP01",
           soTrang: page,
-          soPhanTuTrenTrang: 10,
+          soPhanTuTrenTrang: 4,
         },
       });
       next({
