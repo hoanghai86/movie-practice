@@ -63,4 +63,6 @@ Nếu muốn Carousel đẹp hơn thì dùng https://react-slick.neostack.com/
 
 Cài thư viện immer: npm i immer để chỉnh sửa state thông qua bản draff copy
 
+Cài thư viện react-router-dom ver 6.4.4 để chuyển qua lại giữa các trang: npm i react-router-dom@6.4.4
+
 

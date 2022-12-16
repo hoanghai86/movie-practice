@@ -4,6 +4,7 @@ import produce from "immer";
 const initialState = {
   banners: [],
   movies: {},
+  movieDetail: null,
 };
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -25,6 +26,9 @@ const reducer = (state = initialState, { type, payload }) => {
         break;
       case actions.SET_MOVIES:
         draff.movies = payload;
+        break;
+      case actions.SET_MOVIE_DETAIL:
+        draff.movieDetail = payload;
         break;
 
       default:

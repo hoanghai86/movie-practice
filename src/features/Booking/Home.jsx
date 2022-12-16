@@ -1,4 +1,3 @@
-import Header from "components/Header";
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import HomeCarousel from "./components/HomeCarousel";
@@ -15,7 +14,7 @@ const Home = () => {
 
   return (
     <div>
-      <Header />
+
       <HomeCarousel />
       <MovieList />
     </div>

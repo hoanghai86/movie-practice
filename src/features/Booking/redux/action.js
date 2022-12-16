@@ -3,6 +3,7 @@ import requester from "app/api";
 import { apiPath } from "app/apiPath";
 import actions from "./type";
 
+//call API lấy danh sách banner
 export const fetchBannerAction = async (next) => {
   try {
     // const res = await axios({
@@ -28,6 +29,7 @@ export const fetchBannerAction = async (next) => {
   }
 };
 
+//call API lấy danh sách phim
 export const fetchMoviesAction = (page = 1) => {
   return async (next) => {
     try {
@@ -44,6 +46,25 @@ export const fetchMoviesAction = (page = 1) => {
         type: actions.SET_MOVIES,
         payload: res.data.content,
       });
+    } catch (error) {}
+  };
+};
+
+//call API lấy thông tin phim
+export const fetchMoviesDetailAction = (id) => {
+  return async (next) => {
+    try {
+      const res = await requester({
+        method: "GET",
+        url: apiPath.MOVIE_DETAIL,
+        params: {
+          MaPhim: id,
+        },
+      });
+      next({
+        type: actions.SET_MOVIE_DETAIL,
+        payload: res.data.content,
+      })
     } catch (error) {}
   };
 };
