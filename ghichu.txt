@@ -65,4 +65,5 @@ Cài thư viện immer: npm i immer để chỉnh sửa state thông qua bản d
 
 Cài thư viện react-router-dom ver 6.4.4 để chuyển qua lại giữa các trang: npm i react-router-dom@6.4.4
 
+Cài thư viện moment để format ngày tháng năm: npm install moment
 
