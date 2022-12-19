@@ -1,4 +1,4 @@
-import { Col, Row, Rate, Tag, Button, Modal } from "antd";
+import { Col, Row, Rate, Tag, Button, Modal, Tabs } from "antd";
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -41,7 +41,6 @@ const MovieDetail = () => {
     // return state.booking.movieDetail;
     return state.booking.movieDetailSchedule;
   });
-
 
   console.log(movieDetail);
 
@@ -101,6 +100,51 @@ const MovieDetail = () => {
                 </tr>
               </tbody>
             </table>
+
+            <Tabs
+              tabPosition="left"
+              items={movieDetail.heThongRapChieu.map((itemRap) => {
+                return {
+                  label: (
+                    <>
+                      <img src={itemRap.logo} className="w-24" />
+                      <br />
+                      {itemRap.tenHeThongRap}
+                    </>
+                  ),
+                  key: itemRap.maHeThongRap,
+                  children: itemRap.cumRapChieu.map((itemCumRap) => {
+                    return (
+                      <p>
+                        {itemCumRap.tenCumRap} ({itemCumRap.diaChi})<p></p>
+                        {itemCumRap.lichChieuPhim.map((itemChieu) => {
+                          return (
+                            <Tag color="red">
+                              {moment(itemChieu.ngayChieuGioChieu).format(
+                                "DD/MM/YYYY hh:mm"
+                              )}
+                            </Tag>
+                          );
+                        })}
+                      </p>
+                    );
+                  }),
+                };
+              })}
+
+              // items={[
+              //   {
+              //     label: "tab1",
+              //     key: 1,
+              //     children: "tab 111",
+              //   },
+              //   {
+              //     label: "Tab2",
+              //     key: 2,
+              //     children: "tab 222",
+              //   },
+              // ]}
+            />
           </Col>
         </Row>
 

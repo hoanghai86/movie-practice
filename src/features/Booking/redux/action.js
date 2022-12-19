@@ -37,7 +37,7 @@ export const fetchMoviesAction = (page = 1) => {
         method: "GET",
         url: apiPath.MOVIES,
         params: {
-          maNhom: "GP03",
+          maNhom: "GP10",
           soTrang: page,
           soPhanTuTrenTrang: 4,
         },
