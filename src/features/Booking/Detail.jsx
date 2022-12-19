@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom"; //thư viện bóc ra các tham số từ component MovieList truyền qua
-import { fetchMoviesDetailAction } from "./redux/action";
+import {
+  // fetchMoviesDetailAction,
+  fetchMoviesDetailScheduleAction,
+} from "./redux/action";
 import moment from "moment";
 
 const MovieDetail = () => {
@@ -30,10 +33,16 @@ const MovieDetail = () => {
 
   useEffect(() => {
     const movieId = params.id; //params là 1 cái list tham số, nên ta chỉ cần lấy đúng cái id phim ra, tạo cho nó 1 biến hứng
-    dispatch(fetchMoviesDetailAction(movieId));
+    // dispatch(fetchMoviesDetailAction(movieId));
+    dispatch(fetchMoviesDetailScheduleAction(movieId));
   }, [params]);
 
-  const movieDetail = useSelector((state) => state.booking.movieDetail);
+  const movieDetail = useSelector((state) => {
+    // return state.booking.movieDetail;
+    return state.booking.movieDetailSchedule;
+  });
+
+
   console.log(movieDetail);
 
   // let trailer = "";

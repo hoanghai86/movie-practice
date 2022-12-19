@@ -64,7 +64,26 @@ export const fetchMoviesDetailAction = (id) => {
       next({
         type: actions.SET_MOVIE_DETAIL,
         payload: res.data.content,
-      })
+      });
+    } catch (error) {}
+  };
+};
+
+//call API lấy lịch chiếu của 1 phim
+export const fetchMoviesDetailScheduleAction = (id) => {
+  return async (next) => {
+    try {
+      const res = await requester({
+        method: "GET",
+        url: apiPath.MOVIE_DETAIL_SCHEDULE,
+        params: {
+          MaPhim: id,
+        },
+      });
+      next({
+        type: actions.SET_MOVIE_DETAIL_SCHEDULE,
+        payload: res.data.content,
+      });
     } catch (error) {}
   };
 };

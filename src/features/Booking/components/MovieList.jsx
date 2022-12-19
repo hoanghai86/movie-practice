@@ -18,7 +18,7 @@ const MovieList = () => {
       <Row gutter={[30, 30]}>
         {movies.items?.map((item) => (
           <Col key={item.maPhim} xs={24} sm={12} md={8} lg={6}>
-            <Link to={`/detail/${item.maPhim}`}>
+            <Link to={`/detail/${item.maPhim}`}>{/* truyền mã phim sang component Detail */}
               <Card
                 hoverable
                 style={{
@@ -37,11 +37,11 @@ const MovieList = () => {
                 <p className="text-2xl h-36">
                   {item.moTa.substr(0, 100) + "..."}
                 </p>
-                <Link to={`/detail/${item.maPhim}`}> {/* truyền mã phim sang component Detail */}
+
                   <Button type="primary" size="large">
                     Đặt vé
                   </Button>
-                </Link>
+
               </Card>
             </Link>
           </Col>
