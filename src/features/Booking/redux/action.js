@@ -87,3 +87,32 @@ export const fetchMoviesDetailScheduleAction = (id) => {
     } catch (error) {}
   };
 };
+
+//Lấy thông tin hệ thống rạp trên trang Home
+export const fetchCinemaAction = async (next) => {
+  try {
+    const res = await requester({
+      method: "GET",
+      url: apiPath.CINEMAS,
+    });
+    next({
+      type: actions.SET_CINEMAS,
+      payload: res.data.content,
+    });
+  } catch (error) {}
+};
+
+//Lấy thông tin  lịch chiếu hệ thống rạp
+export const getScheduleCinema = async (maHeThongRap) => {
+  try {
+    const res = await requester({
+      method: "GET",
+      url: apiPath.SCHEDULE_CINEMAS,
+      params: {
+        maHeThongRap: maHeThongRap,
+        maNhom: "GP10",
+      },
+    });
+    return res;
+  } catch (error) {}
+};

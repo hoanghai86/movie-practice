@@ -4,6 +4,7 @@ const actions = {
   SET_MOVIES: `${sliceName}/SET_MOVIES`,
   SET_MOVIE_DETAIL: `${sliceName}/SET_MOVIES_DETAIL`,
   SET_MOVIE_DETAIL_SCHEDULE: `${sliceName}/SET_MOVIES_DETAIL_SCHEDULE`,
+  SET_CINEMAS: `${sliceName}.SET_CINEMA`,
 };
 
 export default actions;

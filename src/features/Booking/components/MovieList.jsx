@@ -51,7 +51,7 @@ const MovieList = () => {
       {/* lần đầu tiên chưa có call API nên Pagination sẽ bị null, nên ta phải check nếu có danh sách phim hoặc có tồn tại thì mới render Pagination ra*/}
       {movies.items && (
         <Pagination
-          defaultCurrent={movies.currentPage}
+          current={movies.currentPage}
           total={movies.totalCount} //tổng số item tất cả trang
           pageSize={4} //số lượng item trên 1 trang
           onChange={(page) => {

@@ -42,8 +42,6 @@ const MovieDetail = () => {
     return state.booking.movieDetailSchedule;
   });
 
-  console.log(movieDetail);
-
   // let trailer = "";
   // trailer = movieDetail && movieDetail.trailer.replace("watch?v=", "embed/");
 
@@ -121,7 +119,7 @@ const MovieDetail = () => {
                           return (
                             <Tag color="red">
                               {moment(itemChieu.ngayChieuGioChieu).format(
-                                "DD/MM/YYYY hh:mm"
+                                "DD/MM/YYYY ~ hh:mm"
                               )}
                             </Tag>
                           );
